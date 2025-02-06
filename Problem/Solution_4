@@ -1,0 +1,84 @@
+# Function to print the current game board in a formatted way
+def print_board(board):
+    for row in board:
+        # Join row cells with a vertical bar to display the row
+        print(" | ".join(row))
+        # Print a horizontal separator after each row
+        print("-" * 9)
+
+# Function to check if the current player (mark) has won
+def check_winner(board, mark):
+    # Check each row for a winning condition
+    for row in board:
+        if all(cell == mark for cell in row):
+            return True
+
+    # Check each column for a winning condition
+    for col in range(3):
+        if all(board[row][col] == mark for row in range(3)):
+            return True
+
+    # Check the main diagonal (top-left to bottom-right)
+    if all(board[i][i] == mark for i in range(3)):
+        return True
+
+    # Check the anti-diagonal (top-right to bottom-left)
+    if all(board[i][2 - i] == mark for i in range(3)):
+        return True
+
+    # No winning condition met
+    return False
+
+# Function to check if the board is completely filled (tie condition)
+def is_board_full(board):
+    return all(cell != " " for row in board for cell in row)
+
+def main():
+    # Initialize a 3x3 game board with empty spaces
+    board = [[" " for _ in range(3)] for _ in range(3)]
+    current_player = "X"  # Set the starting player
+
+    # Main game loop runs until a win or tie is detected
+    while True:
+        print_board(board)  # Display the current board state
+
+        # Prompt current player for their move
+        try:
+            move = input(f"Player {current_player}, enter your move as row,col (1-3 for both): ")
+            row_str, col_str = move.strip().split(',')
+            # Convert input to zero-based indices
+            row, col = int(row_str) - 1, int(col_str) - 1
+        except ValueError:
+            print("Invalid format. Please enter row and column separated by a comma (e.g., 1,2).")
+            continue
+
+        # Validate that the move is within the board limits
+        if row not in range(3) or col not in range(3):
+            print("Row and column numbers must be between 1 and 3.")
+            continue
+
+        # Validate that the chosen cell is not already occupied
+        if board[row][col] != " ":
+            print("That cell is already occupied. Choose a different move.")
+            continue
+
+        # Place the player's mark on the board
+        board[row][col] = current_player
+
+        # Check if the current move resulted in a win
+        if check_winner(board, current_player):
+            print_board(board)
+            print(f"Congratulations, Player {current_player} wins!")
+            break
+
+        # Check if the board is full, indicating a tie
+        if is_board_full(board):
+            print_board(board)
+            print("It's a tie!")
+            break
+
+        # Switch the current player for the next turn
+        current_player = "O" if current_player == "X" else "X"
+
+if __name__ == "__main__":
+    main()
