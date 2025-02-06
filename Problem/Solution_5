@@ -1,0 +1,39 @@
+def sieve_of_eratosthenes(n: int) -> list:
+    """
+    Generate a list of prime numbers up to n using the Sieve of Eratosthenes algorithm.
+    """
+    # Create a boolean list "sieve" with n+1 elements, all initially set to True.
+    sieve = [True] * (n + 1)
+    
+    # 0 and 1 are not prime numbers.
+    sieve[0], sieve[1] = False, False
+
+    # Loop over numbers from 2 to the square root of n (inclusive)
+    for current in range(2, int(n ** 0.5) + 1):
+        # If current is still marked as prime
+        if sieve[current]:
+            # Mark all multiples of current as not prime, starting from current^2
+            for multiple in range(current * current, n + 1, current):
+                sieve[multiple] = False
+
+    # Collect indices that are still True (prime numbers)
+    primes = [number for number, is_prime in enumerate(sieve) if is_prime]
+    return primes
+
+def main():
+    # Prompt the user for input
+    user_input = input("Enter a positive integer to generate all primes up to that number: ")
+
+    # Validate input: check if it's composed only of digits and greater than zero
+    if not user_input.isdigit() or int(user_input) <= 0:
+        print("Invalid input. Please enter a positive integer.")
+        return
+
+    n = int(user_input)
+    # Generate the list of prime numbers using the sieve_of_eratosthenes function
+    primes = sieve_of_eratosthenes(n)
+    # Print the resulting list of primes
+    print(f"Prime numbers up to {n} are: {primes}")
+
+if __name__ == "__main__":
+    main()
