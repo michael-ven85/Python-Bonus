@@ -1,0 +1,21 @@
+# Challenge 2: Palindrome Check
+
+## Objective
+
+Write a Python program that determines if a word provided by the user is a palindrome.
+
+A word is considered a palindrome if it reads the same backward as forward. For example, "radar" is a palindrome, while "python" is not.
+
+## Instructions
+
+- Prompt the user to enter a word.
+- Check if the word is a palindrome.
+- Print a message indicating whether the word is or is not a palindrome.
+
+
+## Hints
+
+- You can compare the word to its reversed version to determine if it's a palindrome.
+- Consider ignoring case differences during the check.
+
+
