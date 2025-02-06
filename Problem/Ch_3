@@ -1,0 +1,18 @@
+# Challenge 3: Prime Factors Finder
+
+## Objective
+
+Write a Python program that prompts the user for a positive integer and then calculates and prints its prime factors.
+
+Prime factors are the prime numbers that multiply together to yield the original number. For example, the prime factors of 12 are 2, 2, and 3.
+
+## Instructions
+
+- Prompt the user to enter a positive integer.
+- Validate that the input is a positive integer.
+- Calculate all the prime factors of the entered number (include repeated factors if applicable).
+- Print the list of prime factors.
+
+
+
+
