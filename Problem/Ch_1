@@ -1,0 +1,19 @@
+# Challenge 1: Factorial Calculation
+
+## Objective
+
+Write a Python program that calculates the factorial of a positive integer provided by the user.
+
+The factorial of a number `n` is defined as the product of all positive integers from 1 to `n`. For example, the factorial of 5 (denoted as `5!`) is `5 * 4 * 3 * 2 * 1 = 120`.
+
+## Instructions
+
+- Prompt the user to enter a positive integer.
+- Ensure the input is valid (i.e., a positive integer).
+- Calculate the factorial of the entered number.
+- Print the result.
+
+## Hints
+
+- You can use a `for` loop or a recursive function to calculate the factorial.
+- Ensure proper handling of cases where the user does not enter a valid number.
