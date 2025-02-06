@@ -1,0 +1,32 @@
+# Challenge 4: Tic Tac Toe Game
+
+## Objective
+
+Write a Python program that allows two players to play a simple game of Tic Tac Toe in the terminal. The game should handle user input, update the game board, and determine when a player wins or the game ends in a tie.
+
+## Instructions
+
+- **Game Board:**  
+  Represent the game board as a 3x3 grid using a list of lists. Each cell should initially contain a space (or an empty string) to indicate it is unoccupied.
+
+- **User Input:**  
+  - Prompt the players (Player X and Player O) to enter their moves in turn.  
+  - Each move should be provided in a specific format, e.g., `row,col`, where `row` and `col` are numbers between 1 and 3 corresponding to the board positions.
+  - Validate the user input to ensure that:
+    - The input format is correct.
+    - The entered row and column numbers are within the allowed range.
+    - The chosen cell is not already occupied.
+
+- **Game Logic:**  
+  - After every move, update the board with the player's mark (either "X" or "O").
+  - Check for a win after each move by verifying if any row, column, or diagonal has three of the same marks.
+  - Also check if the board is full, which would result in a tie if no player has won.
+
+- **Output:**  
+  - After each move, display the updated game board so the players can see the current state.
+  - When a player wins, announce the winning player.
+  - If the game ends in a tie, print a message indicating that the game is a draw.
+
+- **Game Loop:**  
+  - Continue accepting moves until a win or tie condition is met.
+  - Optionally, consider prompting the players if they want to play another round once the game has concluded.
