@@ -1,0 +1,22 @@
+# Challenge 5: Prime Number Generator Using Sieve of Eratosthenes
+
+## Objective
+
+Write a Python program that prompts the user for a positive integer `n` and then generates all prime numbers up to `n` using the Sieve of Eratosthenes algorithm.
+
+## Instructions
+
+- Prompt the user to enter a positive integer `n`.
+- Validate that the input is a positive integer.
+- Use the Sieve of Eratosthenes algorithm to generate all primes up to `n`:
+  - Create a boolean list of length `n + 1` where each index represents a number.
+  - Mark 0 and 1 as non-prime.
+  - For each number starting from 2 up to the square root of `n`, mark its multiples as non-prime.
+- Collect the indices that are still marked as prime and print the list.
+
+## Hints
+
+- Initialize a list (or array) of boolean values with `True` for all indices from 0 to `n`.  
+- Remember that 0 and 1 are not prime numbers, so set their positions to `False`.
+- When iterating to mark non-prime numbers, start from the square of the current prime number.
+- Use list comprehension to extract indices that remain `True` after marking non-primes.
