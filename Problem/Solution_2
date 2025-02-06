@@ -1,0 +1,16 @@
+# solution_challenge_2
+
+def is_palindrome(word):
+    """Check if a word is a palindrome."""
+    cleaned_word = word.lower()
+    return cleaned_word == cleaned_word[::-1]
+
+def main():
+    user_input = input("Enter a word: ")
+    if is_palindrome(user_input):
+        print(f"The word '{user_input}' is a palindrome.")
+    else:
+        print(f"The word '{user_input}' is not a palindrome.")
+
+if __name__ == "__main__":
+    main()
