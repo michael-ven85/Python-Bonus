@@ -1,0 +1,43 @@
+# Function to compute the prime factors of a given positive integer
+def get_prime_factors(n: int) -> list:
+    factors = []  # List to store prime factors
+
+    # Handle the factor 2 separately
+    # Remove all factors of 2 from n
+    while n % 2 == 0:
+        factors.append(2)
+        n //= 2  # Update n by dividing it by 2
+
+    # At this point, n is odd.
+    # Check for odd factors starting from 3 up to sqrt(n)
+    factor = 3
+    while factor * factor <= n:
+        # While factor divides n, add it to the factors list
+        while n % factor == 0:
+            factors.append(factor)
+            n //= factor  # Reduce n accordingly
+        factor += 2  # Move to the next odd number
+
+    # If n is still greater than 2, then it is a prime factor itself.
+    if n > 2:
+        factors.append(n)
+
+    return factors
+
+def main():
+    # Prompt user for input
+    user_input = input("Enter a positive integer: ")
+
+    # Validate input: ensure it's all digits and represents a number > 0
+    if not user_input.isdigit() or int(user_input) <= 0:
+        print("Invalid input. Please enter a positive integer.")
+        return
+
+    number = int(user_input)
+    # Calculate prime factors using the helper function
+    factors = get_prime_factors(number)
+    # Output the result
+    print(f"The prime factors of {number} are: {factors}")
+
+if __name__ == "__main__":
+    main()
